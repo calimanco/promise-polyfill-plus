@@ -3,24 +3,24 @@
 [![Build Status](https://travis-ci.com/calimanco/promise-polyfill-plus.svg?branch=main)](https://travis-ci.com/calimanco/promise-polyfill-plus)
 [![Coverage Status](https://coveralls.io/repos/github/calimanco/promise-polyfill-plus/badge.svg?branch=main)](https://coveralls.io/github/calimanco/promise-polyfill-plus?branch=main)
 
-## 简介
+## Intro
 
-一个用 TypeScript 编写并且不依赖其他包的 Promise polyfill（实现浏览器未实现的 API）。  
-基于 Promise A+ 标准实现。更多的扩展静态方法将会加入。
+A polyfill of the Promise, which is written with TypeScript and with no dependence.  
+Base the standard of Promise A+. More extended static methods will be added.  
 
 ---
 
-[English Version](https://github.com/calimanco/promise-polyfill-plus/blob/main/README_EN.md)
+[中文版](https://github.com/calimanco/promise-polyfill-plus/blob/main/README.md)
 
-## 安装
+## Install
 
 ```bash
 npm install promise-polyfill-plus --save
 ```
 
-## 使用
+## Usage
 
-直接引用到代码中使用。
+import to the code directly.
 
 ```javascript
 import MyPromsie from 'promise-polyfill-plus'
@@ -41,7 +41,7 @@ new MyPromsie((resolve, reject) => {
   })
 ```
 
-自定义 Promise 实现，将静态方法挂载到指定的 Promise 构造函数。
+Custom Promise implementation，mount the static method to the specified promise constructor.
 
 ```javascript
 import { initPromise } from 'promise-polyfill-plus'
@@ -49,7 +49,7 @@ import { initPromise } from 'promise-polyfill-plus'
 const MyPromise = initPromise(Promise)
 ```
 
-可以替换掉原生的 Promise。
+You can replace the original Promise.
 
 ```javascript
 import MyPromsie from 'promise-polyfill-plus'
@@ -63,17 +63,17 @@ if (global && typeof global.Promise !== 'function') {
 }
 ```
 
-## 特性
+## Features
 
-- 实例部分遵循 Promise A+ 标准实现（比如 then 方法）
-- 实例方法
+- The instance Follow the standard of Promise A+ (e.g. then method)
+- Instance method
   * [x] Promise.prototype.catch()
   * [x] Promise.prototype.finally()
-- 检查并抛出"循环引用"的错误
-- 检查并抛出"等待永不运行 promise"的错误（同一 promise 链）
-- 模拟原生在控制台打印"未捕获"的错误
-- initPromise：用于自定义 Promise 实现（将可能失去上面的特性）
-- 静态方法
+- Check and throw the "circular reference" error
+- Check and throw "wait for never run promise" error (same promise chain)
+- Simulate native printing "Uncaught" errors on the console
+- initPromise：For custom promise implementations (which may lose the above features)
+- Static method
   * [x] Promise.all()
   * [x] Promise.race()
   * [x] Promise.resolve()

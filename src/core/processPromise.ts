@@ -22,7 +22,7 @@ export default function processPromise(
 
       while (next) {
         if (callbackResult === next) {
-          return newReject(new TypeError('The promise will never be resolved'))
+          return newReject(new TypeError('Wait for never run promise'))
         }
         next = next._next
       }

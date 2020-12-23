@@ -1,3 +1,4 @@
+import MyPromise from '../src/index'
 import {
   isPromiseLike,
   isMyPromise,
@@ -5,7 +6,6 @@ import {
   simulateAsync,
   runOnce
 } from '../src/helpers/util'
-import MyPromise from '../src/index'
 
 describe('isPromiseLike function test', () => {
   it('should be true', () => {

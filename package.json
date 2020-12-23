@@ -1,7 +1,7 @@
 {
   "name": "promise-polyfill-plus",
   "version": "0.0.1",
-  "description": "This is a polyfill of the ES6 Promise, which is written with typescript. Extending some useful features.",
+  "description": "A polyfill of the Promise, which is written with TypeScript and with no dependence.",
   "keywords": [
     "promise",
     "polyfill"
@@ -34,8 +34,7 @@
     "commit": "git-cz",
     "semantic-release": "semantic-release --branches=main",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-    "precommit": "lint-staged",
-    "travis-deploy-once": "travis-deploy-once"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
