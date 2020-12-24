@@ -1,4 +1,4 @@
-import MyPromise from './../../src/core/MyPromise'
+import MyPromise from '../core/MyPromise'
 const toString = Object.prototype.toString
 
 export function isPromiseLike(val: any): val is PromiseLike<any> {
@@ -35,7 +35,7 @@ export function runOnce(fn: Function) {
 export function checkEnv() {
   if (typeof window !== 'undefined') {
     return 'browser'
-  } else if (typeof global !== 'undefined') {
+  } else {
     return 'node'
   }
 }
