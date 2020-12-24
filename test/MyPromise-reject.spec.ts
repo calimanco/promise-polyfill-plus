@@ -33,7 +33,7 @@ describe('MyPromise‘s reject function base test', () => {
     })
   })
 
-  it('not with catch handle, should console a Uncaught error log', done => {
+  it('not with catch handle, should console a browser "Uncaught Error" log', done => {
     const onFulfilled = jest.fn()
     const spy = jest.spyOn(console, 'error')
     new MyPromise((resolve: any, reject: (arg0: number) => void) => {

@@ -32,8 +32,10 @@ export function runOnce(fn: Function) {
   }
 }
 
-// export function isEnvPromiseSupport() {
-//   return Promise && isPromiseLike(new Promise(() => {
-//     // do nothing
-//   }))
-// }
+export function checkEnv() {
+  if (typeof window !== 'undefined') {
+    return 'browser'
+  } else if (typeof global !== 'undefined') {
+    return 'node'
+  }
+}

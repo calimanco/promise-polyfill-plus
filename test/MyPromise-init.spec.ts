@@ -49,11 +49,11 @@ describe('init function test', () => {
     }
   })
 
-  it('should be add method', () => {
+  it('should not add method', () => {
     const newPromise = initPromise(Promise)
-    expect(newPromise.all).toEqual(expect.any(Function))
-    expect(newPromise.race).toEqual(expect.any(Function))
-    expect(newPromise.resolve).toEqual(expect.any(Function))
-    expect(newPromise.reject).toEqual(expect.any(Function))
+    expect(newPromise.all).not.toEqual(MyPromise.all)
+    expect(newPromise.race).not.toEqual(MyPromise.race)
+    expect(newPromise.resolve).not.toEqual(MyPromise.resolve)
+    expect(newPromise.reject).not.toEqual(MyPromise.reject)
   })
 })

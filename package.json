@@ -1,6 +1,6 @@
 {
   "name": "promise-polyfill-plus",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A polyfill of the Promise, which is written with TypeScript and with no dependence.",
   "keywords": [
     "promise",

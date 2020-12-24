@@ -4,7 +4,8 @@ import {
   isMyPromise,
   isFunction,
   simulateAsync,
-  runOnce
+  runOnce,
+  checkEnv
 } from '../src/helpers/util'
 
 describe('isPromiseLike function test', () => {
@@ -98,5 +99,14 @@ describe('runOnce function test', () => {
     testOnce()
     testOnce()
     expect(test).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('checkEnv function test', () => {
+  it('should be browser', () => {
+    expect(checkEnv()).toBe('browser')
+  })
+  it('should not be node', () => {
+    expect(checkEnv()).not.toBe('node')
   })
 })
