@@ -24,7 +24,7 @@ export function initPromise(promiseClass: PromiseConstructorLike) {
     })
     if (!isPromiseLike(instance)) {
       throw new TypeError(
-        `Init param ${promiseClass.toString()} is not a PromiseConstructorLike object`
+        `Init param ${promiseClass} is not a PromiseConstructorLike object`
       )
     }
   } catch (err) {

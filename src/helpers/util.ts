@@ -1,5 +1,6 @@
 import MyPromise from './../../src/core/MyPromise'
 const toString = Object.prototype.toString
+const env = this
 
 export function isPromiseLike(val: any): val is PromiseLike<any> {
   return (
@@ -32,8 +33,6 @@ export function runOnce(fn: Function) {
   }
 }
 
-// export function isEnvPromiseSupport() {
-//   return Promise && isPromiseLike(new Promise(() => {
-//     // do nothing
-//   }))
-// }
+export function checkEnv() {
+  return env === window ? 'browser' : 'node'
+}
