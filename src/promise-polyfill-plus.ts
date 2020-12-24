@@ -5,12 +5,14 @@ import initAll from './lib/all'
 import initRace from './lib/race'
 import initResolve from './lib/resolve'
 import initReject from './lib/reject'
+import initDeferred from './lib/deferred'
 
 const staticMethods = {
   all: initAll,
   race: initRace,
   resolve: initResolve,
-  reject: initReject
+  reject: initReject,
+  deferred: initDeferred
 }
 
 /**

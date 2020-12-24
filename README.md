@@ -82,7 +82,7 @@ if (global && typeof global.Promise !== 'function') {
   * [x] Promise.race()
   * [x] Promise.resolve()
   * [x] Promise.reject()
-  * [ ] Promise.deferred()
+  * [x] Promise.deferred()
   * [ ] Promise.allSettled()
   * [ ] Promise.any()
   * [ ] Promise.try()

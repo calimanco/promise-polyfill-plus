@@ -53,3 +53,23 @@ describe('MyPromise‘s static reject function test', () => {
     })
   })
 })
+
+describe('MyPromise‘s static deferred function test', () => {
+  it('deferred function resolve test', done => {
+    const a = MyPromise.deferred()
+    a.resolve(123)
+    a.then(value => {
+      expect(value).toBe(123)
+      done()
+    })
+  })
+
+  it('deferred function reject test', done => {
+    const a = MyPromise.deferred()
+    a.catch(reason => {
+      expect(reason).toBe(123)
+      done()
+    })
+    a.reject(123)
+  })
+})
