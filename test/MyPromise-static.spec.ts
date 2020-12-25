@@ -4,7 +4,9 @@ describe('MyPromise‘s static all function test', () => {
   it('all function base test', done => {
     MyPromise.all([
       new MyPromise((resolve: (arg0: number) => void) => {
-        resolve(123)
+        setTimeout(() => {
+          resolve(123)
+        }, 100)
       }),
       new MyPromise((resolve: (arg0: number) => void) => {
         setTimeout(() => {
@@ -15,6 +17,26 @@ describe('MyPromise‘s static all function test', () => {
       expect(value).toEqual([123, 456])
       done()
     })
+  })
+
+  it('should be a reject error', done => {
+    const onFulfilled = jest.fn()
+    MyPromise.all([
+      new MyPromise((resolve, reject) => {
+        reject(123)
+      }),
+      new MyPromise((resolve: (arg0: number) => void) => {
+        setTimeout(() => {
+          resolve(456)
+        }, 10)
+      })
+    ])
+      .then(onFulfilled)
+      .catch(reason => {
+        expect(onFulfilled).toHaveBeenCalledTimes(0)
+        expect(reason).toBe(123)
+        done()
+      })
   })
 })
 

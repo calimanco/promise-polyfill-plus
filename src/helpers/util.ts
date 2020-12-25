@@ -1,6 +1,10 @@
 import MyPromise from '../core/MyPromise'
 const toString = Object.prototype.toString
 
+/**
+ * 判断是否是 PromiseLike 的对象。
+ * @param val 需要判断的对象
+ */
 export function isPromiseLike(val: any): val is PromiseLike<any> {
   return (
     val !== null &&
@@ -11,18 +15,35 @@ export function isPromiseLike(val: any): val is PromiseLike<any> {
   )
 }
 
+/**
+ * 判断是否是内置的 Promise 构造函数产生的 promise 对象。
+ * @param val 需要判断的对象
+ */
 export function isMyPromise(val: any): val is MyPromise {
   return val !== null && val instanceof MyPromise
 }
 
+/**
+ * 判断是不是函数。
+ * @param val 需要判断的对象
+ */
 export function isFunction(val: any): val is Function {
   return typeof val === 'function'
 }
 
+/**
+ * 模拟异步延迟。
+ * @param fn 延迟运行的函数
+ * @param ms 延迟的毫秒数，默认是0
+ */
 export function simulateAsync(fn: Function, ms = 0): void {
   setTimeout(fn, ms)
 }
 
+/**
+ * 使函数只运行一次的包装函数。
+ * @param fn 函数
+ */
 export function runOnce(fn: Function) {
   let lock = false
   return (...arg: any) => {
@@ -32,10 +53,21 @@ export function runOnce(fn: Function) {
   }
 }
 
+/**
+ * 检查运行的环境。
+ */
 export function checkEnv() {
   if (typeof window !== 'undefined') {
     return 'browser'
   } else {
     return 'node'
   }
+}
+
+/**
+ * 获取数组的真实长度。
+ * @param arr 数组
+ */
+export function getArrayRealLen(arr: Array<any>) {
+  return Object.keys(arr).length
 }
