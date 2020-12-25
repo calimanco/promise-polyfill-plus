@@ -2,12 +2,12 @@
 
 [![Build Status](https://travis-ci.com/calimanco/promise-polyfill-plus.svg?branch=main)](https://travis-ci.com/calimanco/promise-polyfill-plus)
 [![Coverage Status](https://coveralls.io/repos/github/calimanco/promise-polyfill-plus/badge.svg?branch=main)](https://coveralls.io/github/calimanco/promise-polyfill-plus?branch=main)
-![NPM](https://img.shields.io/npm/l/promise-polyfill-plus)
-![npm bundle size](https://img.shields.io/bundlephobia/min/promise-polyfill-plus)
+[![NPM](https://img.shields.io/npm/l/promise-polyfill-plus)](https://www.npmjs.com/package/promise-polyfill-plus)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/promise-polyfill-plus)](https://www.npmjs.com/package/promise-polyfill-plus)
 
 ## Intro
 
-A polyfill of the Promise, which is written with TypeScript and with no dependence.  
+A polyfill of the Promise, which is written with TypeScript and without any dependence.  
 Base the standard of Promise A+. More extended static methods will be added.  
 
 ---
