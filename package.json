@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "A polyfill of the Promise, which is written with TypeScript and with no dependence.",
   "keywords": [
-    "promise",
-    "polyfill"
+    "es6-promise",
+    "promise-polyfill",
+    "polyfill",
+    "typescript"
   ],
   "main": "dist/promise-polyfill-plus.umd.js",
   "module": "dist/promise-polyfill-plus.es5.js",
-  "typings": "dist/types/promise-polyfill-plus.d.ts",
+  "typings": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
