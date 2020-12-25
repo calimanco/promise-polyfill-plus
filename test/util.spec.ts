@@ -5,7 +5,8 @@ import {
   isFunction,
   simulateAsync,
   runOnce,
-  checkEnv
+  checkEnv,
+  getArrayRealLen
 } from '../src/helpers/util'
 
 describe('isPromiseLike function test', () => {
@@ -108,5 +109,14 @@ describe('checkEnv function test', () => {
   })
   it('should not be node', () => {
     expect(checkEnv()).not.toBe('node')
+  })
+})
+
+describe('getArrayRealLen function test', () => {
+  it('should be 2', () => {
+    const arr = []
+    arr[1] = 1
+    arr[3] = 3
+    expect(getArrayRealLen(arr)).toBe(2)
   })
 })
