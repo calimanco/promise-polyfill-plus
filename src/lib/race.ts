@@ -9,7 +9,5 @@ export function race(MyPromise: any, promises: PromiseLike<any>[]) {
 }
 
 export default function initRace(MyPromise: any) {
-  return (promises: PromiseLike<any>[]) => {
-    return race(MyPromise, promises)
-  }
+  return race.bind(null, MyPromise)
 }

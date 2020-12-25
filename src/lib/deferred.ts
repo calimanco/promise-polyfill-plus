@@ -10,7 +10,5 @@ export function deferred(MyPromise: any) {
 }
 
 export default function initDeferred(MyPromise: any) {
-  return () => {
-    return deferred(MyPromise)
-  }
+  return deferred.bind(null, MyPromise)
 }

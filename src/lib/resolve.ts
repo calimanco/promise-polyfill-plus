@@ -5,7 +5,5 @@ export function resolve(MyPromise: any, value?: any) {
 }
 
 export default function initResolve(MyPromise: any) {
-  return (value?: any) => {
-    return resolve(MyPromise, value)
-  }
+  return resolve.bind(null, MyPromise)
 }

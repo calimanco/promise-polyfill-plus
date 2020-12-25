@@ -5,7 +5,5 @@ export function reject(MyPromise: any, reason: any) {
 }
 
 export default function initReject(MyPromise: any) {
-  return (reason: any) => {
-    return reject(MyPromise, reason)
-  }
+  return reject.bind(null, MyPromise)
 }
