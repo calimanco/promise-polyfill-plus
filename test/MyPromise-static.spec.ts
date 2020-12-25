@@ -95,3 +95,40 @@ describe('MyPromise‘s static deferred function test', () => {
     a.reject(123)
   })
 })
+
+describe('MyPromise‘s static allSettled function test', () => {
+  it('allSettled function base test', done => {
+    const onRejected = jest.fn()
+    MyPromise.allSettled([
+      new MyPromise((resolve: (arg0: number) => void) => {
+        setTimeout(() => {
+          resolve(123)
+        }, 100)
+      }),
+      new MyPromise((resolve, reject) => {
+        setTimeout(() => {
+          reject(456)
+        }, 10)
+      })
+    ])
+      .then(value => {
+        expect(value).toEqual([
+          {
+            status: 'fulfilled',
+            value: 123,
+            reason: null
+          },
+          {
+            status: 'rejected',
+            value: null,
+            reason: 456
+          }
+        ])
+      })
+      .catch(onRejected)
+      .then(() => {
+        expect(onRejected).toHaveBeenCalledTimes(0)
+        done()
+      })
+  })
+})

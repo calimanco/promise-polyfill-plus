@@ -33,10 +33,13 @@ interface DeferredMyPromiseInstance<T> extends MyPromiseInstance<T> {
 }
 
 export interface MyPromiseStatic extends MyPromiseClassStatic {
-  all<T>(values: Iterable<T | PromiseLike<T>>): MyPromiseInstance<T[]>
-  race<T>(values: Iterable<T | PromiseLike<T>>): MyPromiseInstance<T>
+  all<T>(promiseArray: Iterable<T | PromiseLike<T>>): MyPromiseInstance<T[]>
+  race<T>(promiseArray: Iterable<T | PromiseLike<T>>): MyPromiseInstance<T>
   resolve(): Promise<void>
   resolve<T>(value?: T | PromiseLike<T>): MyPromiseInstance<T>
   reject<T = never>(reason?: any): MyPromiseInstance<T>
   deferred<T>(): DeferredMyPromiseInstance<T>
+  allSettled<T>(
+    promiseArray: Iterable<T | PromiseLike<T>>
+  ): MyPromiseInstance<T[]>
 }
