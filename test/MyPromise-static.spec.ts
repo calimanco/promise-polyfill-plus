@@ -171,3 +171,52 @@ describe('MyPromise‘s static allSettled function test', () => {
     })
   })
 })
+
+describe('MyPromise‘s static try function test', () => {
+  it('try function base test', done => {
+    const onFulfilled = jest.fn()
+    const database = {
+      get: () =>
+        new Promise(resolve => {
+          resolve('lin')
+        })
+    }
+    function getUsername() {
+      // here will throw wrong
+      let a: any = 1
+      a.run()
+      return database.get().then(function (userName) {
+        return userName
+      })
+    }
+
+    MyPromise.try(() => getUsername())
+      .then(onFulfilled)
+      .catch(reason => {
+        expect(onFulfilled).toHaveBeenCalledTimes(0)
+        expect(reason).toEqual(expect.any(TypeError))
+        done()
+      })
+  })
+})
+
+describe('MyPromise‘s static any function test', () => {
+  it('should be fulfilled with 123', done => {
+    MyPromise.any([MyPromise.resolve(123), MyPromise.reject(456)]).then(
+      value => {
+        expect(value).toBe(123)
+        done()
+      }
+    )
+  })
+  it('should be rejected with a array', done => {
+    const onFulfilled = jest.fn()
+    MyPromise.any([MyPromise.reject(123), MyPromise.reject(456)])
+      .then(onFulfilled)
+      .catch(reason => {
+        expect(onFulfilled).toHaveBeenCalledTimes(0)
+        expect(reason).toEqual([123, 456])
+        done()
+      })
+  })
+})

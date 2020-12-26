@@ -42,4 +42,6 @@ export interface MyPromiseStatic extends MyPromiseClassStatic {
   allSettled<T>(
     promiseArray: Iterable<T | PromiseLike<T>>
   ): MyPromiseInstance<T[]>
+  try<T>(fn: () => PromiseLike<T>): MyPromiseInstance<T[]>
+  any<T>(promiseArray: Iterable<T | PromiseLike<T>>): MyPromiseInstance<T>
 }

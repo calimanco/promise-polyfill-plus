@@ -7,6 +7,8 @@ import initResolve from './lib/resolve'
 import initReject from './lib/reject'
 import initDeferred from './lib/deferred'
 import initAllSettled from './lib/allSettled'
+import initTry from './lib/try'
+import initAny from './lib/any'
 
 const staticMethods = {
   all: initAll,
@@ -14,7 +16,9 @@ const staticMethods = {
   resolve: initResolve,
   reject: initReject,
   deferred: initDeferred,
-  allSettled: initAllSettled
+  allSettled: initAllSettled,
+  try: initTry,
+  any: initAny
 }
 
 /**

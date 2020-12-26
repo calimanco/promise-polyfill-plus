@@ -84,8 +84,8 @@ if (global && typeof global.Promise !== 'function') {
   * [x] Promise.reject()
   * [x] Promise.deferred()
   * [x] Promise.allSettled()
-  * [ ] Promise.any()
-  * [ ] Promise.try()
+  * [x] Promise.any()
+  * [x] Promise.try()
 
 ## 说明
 
