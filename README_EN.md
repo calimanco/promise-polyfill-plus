@@ -68,7 +68,7 @@ if (global && typeof global.Promise !== 'function') {
 - It can customize promise implementation and directly extend existing promise constructors.
 - Tool function
   - [x] initPromise()
-  - [ ] autoPolyfill()
+  - [x] autoPolyfill()
 - Static method
   - [x] Promise.all()
   - [x] Promise.race()
@@ -103,7 +103,15 @@ const PromisePlus = initPromise(CustomPromise)
 
 #### autoPolyfill()
 
-// TODO
+Promise polyfill for the current operating environment automatically.  
+If there is no global Promise support, the built-in Promise will be directly mounted to the global;  
+If there is global Promise support, the existing Promise will be expanded and mounted to the global.  
+
+```javascript
+import { autoPolyfill } from 'promise-polyfill-plus'
+
+autoPolyfill()
+```
 
 ### Static method
 

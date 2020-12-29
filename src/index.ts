@@ -4,7 +4,7 @@ import Promise from './promise-polyfill-plus'
 export * from './types'
 
 // 导出构建方法
-export { initPromise } from './promise-polyfill-plus'
+export { initPromise, autoPolyfill } from './promise-polyfill-plus'
 
 // 导出主体
 export default Promise

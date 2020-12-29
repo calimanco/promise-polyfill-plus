@@ -16,6 +16,26 @@ export function isPromiseLike(val: any): val is PromiseLike<any> {
 }
 
 /**
+ * 判断是否是 PromiseConstructorLike 的对象。
+ * @param promiseClass
+ */
+export function isPromiseConstructorLike(
+  promiseClass: any
+): promiseClass is PromiseConstructorLike {
+  try {
+    const instance = new promiseClass(() => {
+      // do nothing
+    })
+    if (!isPromiseLike(instance)) {
+      return false
+    }
+  } catch (err) {
+    return false
+  }
+  return true
+}
+
+/**
  * 判断是否是内置的 Promise 构造函数产生的 promise 对象。
  * @param val 需要判断的对象
  */

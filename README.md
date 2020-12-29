@@ -69,7 +69,7 @@ if (global && typeof global.Promise !== 'function') {
 - 可自定义 Promise 实现，直接扩展已有的 Promise 构造函数。
 - 工具函数
   - [x] initPromise()
-  - [ ] autoPolyfill()
+  - [x] autoPolyfill()
 - 静态方法
   - [x] Promise.all()
   - [x] Promise.race()
@@ -104,7 +104,15 @@ const PromisePlus = initPromise(CustomPromise)
 
 #### autoPolyfill()
 
-// TODO
+自动对当前运行环境进行 Promise Polyfill。  
+如果全局没有 Promise 支持，则会直接将内置的 Promise 实现挂载到全局；  
+如果全局已有 Promise 支持，则会对现有的 Promise 进行扩展后挂载到全局。  
+
+```javascript
+import { autoPolyfill } from 'promise-polyfill-plus'
+
+autoPolyfill()
+```
 
 ### 静态方法
 

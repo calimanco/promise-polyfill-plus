@@ -1,4 +1,4 @@
-import MyPromise, { initPromise } from '../src/index'
+import MyPromise, { initPromise, autoPolyfill } from '../src/index'
 
 /**
  * 实例化测试
@@ -50,17 +50,29 @@ describe('init function test', () => {
   })
 
   it('should not be added method', () => {
-    const newPromise = initPromise(Promise)
-    expect(newPromise.all).not.toEqual(MyPromise.all)
-    expect(newPromise.race).not.toEqual(MyPromise.race)
-    expect(newPromise.resolve).not.toEqual(MyPromise.resolve)
-    expect(newPromise.reject).not.toEqual(MyPromise.reject)
+    const newPromiseClass = initPromise(Promise)
+    expect(newPromiseClass.all).not.toEqual(MyPromise.all)
+    expect(newPromiseClass.race).not.toEqual(MyPromise.race)
+    expect(newPromiseClass.resolve).not.toEqual(MyPromise.resolve)
+    expect(newPromiseClass.reject).not.toEqual(MyPromise.reject)
   })
 
   it('should be added method', () => {
-    const newPromise = initPromise(Promise)
-    expect(newPromise.deferred).not.toBeUndefined()
-    expect(newPromise.allSettled).not.toBeUndefined()
-    expect(newPromise.try).not.toBeUndefined()
+    const newPromiseClass = initPromise(Promise)
+    expect(newPromiseClass.deferred).not.toBeUndefined()
+    expect(newPromiseClass.allSettled).not.toBeUndefined()
+    expect(newPromiseClass.any).not.toBeUndefined()
+    expect(newPromiseClass.try).not.toBeUndefined()
+  })
+})
+
+describe('init function test', () => {
+  it('should be added method', () => {
+    autoPolyfill()
+    const EnvPromise: any = Promise
+    expect(EnvPromise.deferred).not.toBeUndefined()
+    expect(EnvPromise.allSettled).not.toBeUndefined()
+    expect(EnvPromise.any).not.toBeUndefined()
+    expect(EnvPromise.try).not.toBeUndefined()
   })
 })
