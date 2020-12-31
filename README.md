@@ -68,17 +68,17 @@ if (global && typeof global.Promise !== 'function') {
 - 模拟原生在控制台打印"未捕获"的错误（浏览器和 Node 环境输出有差异）。
 - 可自定义 Promise 实现，直接扩展已有的 Promise 构造函数。
 - 工具函数
-  - [x] initPromise()
-  - [x] autoPolyfill()
+  - [x] [initPromise()](#initpromise)
+  - [x] [autoPolyfill()](#autopolyfill)
 - 静态方法
-  - [x] Promise.all()
-  - [x] Promise.race()
-  - [x] Promise.resolve()
-  - [x] Promise.reject()
-  - [x] Promise.deferred()
-  - [x] Promise.allSettled()
-  - [x] Promise.any()
-  - [x] Promise.try()
+  - [x] [Promise.all()](#promiseall)
+  - [x] [Promise.race()](#promiserace)
+  - [x] [Promise.resolve()](#promiseresolve)
+  - [x] [Promise.reject()](#promisereject)
+  - [x] [Promise.deferred()](#promisedeferred)
+  - [x] [Promise.allSettled()](#promiseallsettled)
+  - [x] [Promise.any()](#promiseany)
+  - [x] [Promise.try()](#promisetry)
 
 ## 说明
 
@@ -89,7 +89,9 @@ Promise A+ 规范里规定 Promise 属于微任务（microtask），本项目使
 
 ### 工具函数
 
-#### initPromise(PromiseConstructor): NewPromiseConstructor
+#### initPromise()
+
+`initPromise(PromiseConstructor): NewPromiseConstructor`
 
 - PromiseConstructor：一个 Promise 的构造函数，可以是原生实现，也可以是各类符合 Promise A+ 规范的实现。
 - NewPromiseConstructor：扩展了静态方法的新构造函数。
@@ -106,7 +108,7 @@ const PromisePlus = initPromise(CustomPromise)
 
 自动对当前运行环境进行 Promise Polyfill。  
 如果全局没有 Promise 支持，则会直接将内置的 Promise 实现挂载到全局；  
-如果全局已有 Promise 支持，则会对现有的 Promise 进行扩展后挂载到全局。  
+如果全局已有 Promise 支持，则会对现有的 Promise 构造函数进行扩展后挂载到全局。  
 
 ```javascript
 import { autoPolyfill } from 'promise-polyfill-plus'
@@ -116,7 +118,9 @@ autoPolyfill()
 
 ### 静态方法
 
-#### Promise.all(promiseArray): PromiseInstance
+#### Promise.all()
+
+`Promise.all(promiseArray): PromiseInstance`
 
 - promiseArray：一个由 Promise 实例组成的数组。
 - PromiseInstance：新的 Promise 实例。
@@ -141,7 +145,9 @@ Promise.all(promises)
   })
 ```
 
-#### Promise.race(promiseArray): PromiseInstance
+#### Promise.race()
+
+`Promise.race(promiseArray): PromiseInstance`
 
 - promiseArray：一个由 Promise 实例组成的数组。
 - PromiseInstance：新的 Promise 实例。
@@ -167,7 +173,9 @@ p.then(value => {
 })
 ```
 
-#### Promise.resolve([value]): PromiseInstance
+#### Promise.resolve()
+
+`Promise.resolve([value]): PromiseInstance`
 
 - value：可选，onFulfilled 回调的值。
 - PromiseInstance：Promise 实例。
@@ -182,7 +190,9 @@ PromisePlus.resolve('foo')
 new PromisePlus(resolve => resolve('foo'))
 ```
 
-#### Promise.reject([reason]): PromiseInstance
+#### Promise.reject()
+
+`Promise.reject([reason]): PromiseInstance`
 
 - reason：可选，onRejected 回调的值。
 - PromiseInstance：Promise 实例。
@@ -197,7 +207,9 @@ PromisePlus.reject('foo')
 new PromisePlus((resolve, reject) => reject('foo'))
 ```
 
-#### Promise.deferred(): DeferredMyPromiseInstance
+#### Promise.deferred()
+
+`Promise.deferred(): DeferredMyPromiseInstance`
 
 - DeferredMyPromiseInstance：扩展了延迟特性的 Promise 实例，增加了 resolve 和 reject 方法。
 
@@ -217,7 +229,9 @@ p.then(value => {
 p.resolve(123)
 ```
 
-#### Promise.allSettled(promiseArray): PromiseInstance
+#### Promise.allSettled()
+
+`Promise.allSettled(promiseArray): PromiseInstance`
 
 - promiseArray：一个由 Promise 实例组成的数组。
 - PromiseInstance：新的 Promise 实例。
@@ -242,7 +256,9 @@ allSettledPromise.then(function (results) {
 })
 ```
 
-#### Promise.try(ReturnPromiseLikeFn): PromiseInstance
+#### Promise.try()
+
+`Promise.try(ReturnPromiseLikeFn): PromiseInstance`
 
 - ReturnPromiseLikeFn：一个返回 PromiseLike（Thenable） 对象的函数。
 - PromiseInstance：Promise 实例。
@@ -265,7 +281,9 @@ PromisePlus.try(() => getUsername(123))
   })
 ```
 
-#### Promise.any(promiseArray): PromiseInstance
+#### Promise.any()
+
+`Promise.any(promiseArray): PromiseInstance`
 
 - promiseArray：一个由 Promise 实例组成的数组。
 - PromiseInstance：新的 Promise 实例。

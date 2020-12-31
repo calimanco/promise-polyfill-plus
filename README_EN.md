@@ -67,17 +67,17 @@ if (global && typeof global.Promise !== 'function') {
 - Simulate native printing "Uncaught" errors on the console (the output of browser and node environment is different).
 - It can customize promise implementation and directly extend existing promise constructors.
 - Tool function
-  - [x] initPromise()
-  - [x] autoPolyfill()
+  - [x] [initPromise()](#initpromise)
+  - [x] [autoPolyfill()](#autopolyfill)
 - Static method
-  - [x] Promise.all()
-  - [x] Promise.race()
-  - [x] Promise.resolve()
-  - [x] Promise.reject()
-  - [x] Promise.deferred()
-  - [x] Promise.allSettled()
-  - [x] Promise.any()
-  - [x] Promise.try()
+  - [x] [Promise.all()](#promiseall)
+  - [x] [Promise.race()](#promiserace)
+  - [x] [Promise.resolve()](#promiseresolve)
+  - [x] [Promise.reject()](#promisereject)
+  - [x] [Promise.deferred()](#promisedeferred)
+  - [x] [Promise.allSettled()](#promiseallsettled)
+  - [x] [Promise.any()](#promiseany)
+  - [x] [Promise.try()](#promisetry)
 
 ## Explanation
 
@@ -88,7 +88,9 @@ Running rules in different versions of the browser and node environment may be d
 
 ### Tool function
 
-#### initPromise(PromiseConstructor): NewPromiseConstructor
+#### initPromise()
+
+`initPromise(PromiseConstructor): NewPromiseConstructor`
 
 - PromiseConstructor：The constructor of a Promise, which can be a native implementation or various implementations that conform to the Promise A+ standard.
 - NewPromiseConstructor：New constructor with extended static methods.
@@ -105,7 +107,7 @@ const PromisePlus = initPromise(CustomPromise)
 
 Promise polyfill for the current operating environment automatically.  
 If there is no global Promise support, the built-in Promise will be directly mounted to the global;  
-If there is global Promise support, the existing Promise will be expanded and mounted to the global.  
+If there is global Promise support, the existing Promise constructor will be expanded and mounted to the global.  
 
 ```javascript
 import { autoPolyfill } from 'promise-polyfill-plus'
@@ -115,7 +117,9 @@ autoPolyfill()
 
 ### Static method
 
-#### Promise.all(promiseArray): PromiseInstance
+#### Promise.all()
+
+`Promise.all(promiseArray): PromiseInstance`
 
 - promiseArray：An array of Promise instances.
 - PromiseInstance：New Promise instance.
@@ -140,7 +144,9 @@ Promise.all(promises)
   })
 ```
 
-#### Promise.race(promiseArray): PromiseInstance
+#### Promise.race()
+
+`Promise.race(promiseArray): PromiseInstance`
 
 - promiseArray：An array of Promise instances.
 - PromiseInstance：New Promise instance.
@@ -166,7 +172,9 @@ p.then(value => {
 })
 ```
 
-#### Promise.resolve([value]): PromiseInstance
+#### Promise.resolve()
+
+`Promise.resolve([value]): PromiseInstance`
 
 - value：Optional, the value of onFulfilled callback.
 - PromiseInstance：Promise instance.
@@ -181,7 +189,9 @@ PromisePlus.resolve('foo')
 new PromisePlus(resolve => resolve('foo'))
 ```
 
-#### Promise.reject([reason]): PromiseInstance
+#### Promise.reject()
+
+`Promise.reject([reason]): PromiseInstance`
 
 - reason：Optional, the value of onRejected callback.
 - PromiseInstance：Promise instance.
@@ -196,7 +206,9 @@ PromisePlus.reject('foo')
 new PromisePlus((resolve, reject) => reject('foo'))
 ```
 
-#### Promise.deferred(): DeferredMyPromiseInstance
+#### Promise.deferred()
+
+`Promise.deferred(): DeferredMyPromiseInstance`
 
 - DeferredMyPromiseInstance：Promise instance with extended delay feature, which has "resolve" and "reject" method.
 
@@ -216,7 +228,9 @@ p.then(value => {
 p.resolve(123)
 ```
 
-#### Promise.allSettled(promiseArray): PromiseInstance
+#### Promise.allSettled()
+
+`Promise.allSettled(promiseArray): PromiseInstance`
 
 - promiseArray：An array of Promise instances.
 - PromiseInstance：New Promise instance.
@@ -241,7 +255,9 @@ allSettledPromise.then(function (results) {
 })
 ```
 
-#### Promise.try(ReturnPromiseLikeFn): PromiseInstance
+#### Promise.try()
+
+`Promise.try(ReturnPromiseLikeFn): PromiseInstance`
 
 - ReturnPromiseLikeFn：A function that returns a PromiseLike (Thenable) object. 
 - PromiseInstance：Promise instance.
@@ -264,7 +280,9 @@ PromisePlus.try(() => getUsername(123))
   })
 ```
 
-#### Promise.any(promiseArray): PromiseInstance
+#### Promise.any()
+
+`Promise.any(promiseArray): PromiseInstance`
 
 - promiseArray：An array of Promise instances.
 - PromiseInstance：New Promise instance.
