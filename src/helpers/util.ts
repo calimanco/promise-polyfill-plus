@@ -47,7 +47,7 @@ export function isMyPromise(val: any): val is MyPromise {
  * 判断是不是函数。
  * @param val 需要判断的对象
  */
-export function isFunction(val: any): val is Function {
+export function isFunction(val: any): val is (...arg: any) => any {
   return typeof val === 'function'
 }
 
@@ -56,7 +56,7 @@ export function isFunction(val: any): val is Function {
  * @param fn 延迟运行的函数
  * @param ms 延迟的毫秒数，默认是0
  */
-export function simulateAsync(fn: Function, ms = 0): void {
+export function simulateAsync(fn: (...arg: any) => any, ms = 0): void {
   setTimeout(fn, ms)
 }
 
@@ -64,7 +64,7 @@ export function simulateAsync(fn: Function, ms = 0): void {
  * 使函数只运行一次的包装函数。
  * @param fn 函数
  */
-export function runOnce(fn: Function) {
+export function runOnce(fn: (...arg: any) => any) {
   let lock = false
   return (...arg: any) => {
     if (lock) return

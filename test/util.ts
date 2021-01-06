@@ -13,7 +13,7 @@ export function changeThenToThrowError(promise: PromiseLike<any>) {
   const oldThen = promise.then
   promise.then = new Proxy(oldThen, {
     apply: function () {
-      let a: any = 1
+      const a: any = 1
       a.run()
     }
   })

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+compiled/
+coverage/
+.vscode/
+.nyc_output/
+git_stats/
+yarn-offline/
+docs/
+__mock__/
+.temp/

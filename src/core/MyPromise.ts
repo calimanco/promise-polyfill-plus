@@ -27,7 +27,7 @@ export default class MyPromise {
   _onFulfilledCallbacks: FulfilledCallback[] = []
   _onRejectedCallbacks: RejectedCallback[] = []
   _next: null | MyPromise = null
-  _isCatch: boolean = false
+  _isCatch = false
 
   constructor(executor: ExecutorFn) {
     try {
@@ -47,11 +47,12 @@ export default class MyPromise {
 
   then = then.bind(this)
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   catch = (onRejected?: ((reason: any) => any) | null) => {
     return this.then(null, onRejected)
   }
 
-  finally = (callback: Function) => {
+  finally = (callback: () => void) => {
     return this.then(
       (value: any) => {
         callback()

@@ -4,7 +4,7 @@ import MyPromise, { initPromise, autoPolyfill } from '../src/index'
  * 实例化测试
  */
 describe('MyPromise init test', () => {
-  let promise = new MyPromise((resolve: (arg0: number) => void) => {
+  const promise = new MyPromise((resolve: (arg0: number) => void) => {
     resolve(123)
   })
 

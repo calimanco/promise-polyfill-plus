@@ -1,6 +1,6 @@
 export function deferred(MyPromise: any) {
   const tmp: any = {}
-  let dfd = new MyPromise((resolve: any, reject: any) => {
+  const dfd = new MyPromise((resolve: any, reject: any) => {
     tmp.resolve = resolve
     tmp.reject = reject
   })

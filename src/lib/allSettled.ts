@@ -2,8 +2,8 @@ import { getArrayRealLen } from '../helpers/util'
 
 export function allSettled(MyPromise: any, promises: PromiseLike<any>[]) {
   return new MyPromise((resolve: (arg0: any[]) => void) => {
-    let result: any[] = []
-    let promisesLen = promises.length
+    const result: any[] = []
+    const promisesLen = promises.length
 
     promises.forEach((promise, index) => {
       promise.then(

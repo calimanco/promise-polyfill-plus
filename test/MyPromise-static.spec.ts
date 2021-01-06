@@ -183,7 +183,7 @@ describe('MyPromise‘s static try function test', () => {
     }
     function getUsername() {
       // here will throw wrong
-      let a: any = 1
+      const a: any = 1
       a.run()
       return database.get().then(function (userName) {
         return userName

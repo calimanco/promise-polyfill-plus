@@ -46,7 +46,7 @@ describe('executor function occurs error', () => {
   it('should catch an error', done => {
     const onFulfilled = jest.fn()
     new MyPromise((resolve: (arg0: number) => void) => {
-      let a: any = 1
+      const a: any = 1
       a.run()
       resolve(1)
     })
