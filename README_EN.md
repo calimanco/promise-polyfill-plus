@@ -26,6 +26,8 @@ import to the code directly.
 
 ```javascript
 import PromisePlus from 'promise-polyfill-plus'
+// or
+const PromisePlus = require('promise-polyfill-plus')
 
 new PromisePlus((resolve, reject) => {
   if (true) {
@@ -43,18 +45,12 @@ new PromisePlus((resolve, reject) => {
   })
 ```
 
-You can replace the original Promise.
+The native Promise can be automatically enhanced. If the environment does not have native support, mount the polyfill version globally.
 
 ```javascript
-import PromisePlus from 'promise-polyfill-plus'
-// browser
-if (window && typeof window.Promise !== 'function') {
-  window.Promise = PromisePlus
-}
-// nodejs
-if (global && typeof global.Promise !== 'function') {
-  global.Promise = PromisePlus
-}
+import 'promise-polyfill-plus/auto'
+// or
+require('promise-polyfill-plus/auto')
 ```
 
 ## Features

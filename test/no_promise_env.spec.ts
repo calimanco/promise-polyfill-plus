@@ -1,5 +1,5 @@
 /**
- * @jest-environment ./test/env/no-promise-environment
+ * @jest-environment ./test/environment/no-promise-environment
  */
 
 import { autoPolyfill } from '../src'

@@ -26,6 +26,8 @@ npm install promise-polyfill-plus --save
 
 ```javascript
 import PromisePlus from 'promise-polyfill-plus'
+// or
+const PromisePlus = require('promise-polyfill-plus')
 
 new PromisePlus((resolve, reject) => {
   if (true) {
@@ -43,19 +45,15 @@ new PromisePlus((resolve, reject) => {
   })
 ```
 
-可以替换掉原生的 Promise。
+可以自动增强原生的 Promise。如果环境无原生支持则使用 polyfill 版本挂载到全局。
 
 ```javascript
-import PromisePlus from 'promise-polyfill-plus'
-// browser
-if (window && typeof window.Promise !== 'function') {
-  window.Promise = PromisePlus
-}
-// nodejs
-if (global && typeof global.Promise !== 'function') {
-  global.Promise = PromisePlus
-}
+import 'promise-polyfill-plus/auto'
+// or
+require('promise-polyfill-plus/auto')
 ```
+
+如果你想
 
 ## 特性
 
