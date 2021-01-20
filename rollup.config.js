@@ -16,14 +16,24 @@ export default {
       file: pkg.main,
       name: camelCase(libraryName),
       format: 'umd',
-      sourcemap: true
+      sourcemap: true,
+      exports: 'named'
     },
     {
-      file: pkg.main.replace('.js', '.min.js'),
+      file: pkg.main.replace('.js', '.auto.js'),
+      name: camelCase(libraryName),
+      format: 'umd',
+      sourcemap: true,
+      outro: 'autoPolyfill()',
+      exports: 'named'
+    },
+    {
+      file: pkg.main.replace('.js', '.auto.min.js'),
       name: camelCase(libraryName),
       format: 'umd',
       sourcemap: false,
       outro: 'autoPolyfill()',
+      exports: 'named',
       plugins: [uglify()]
     },
     { file: pkg.module, format: 'es', sourcemap: true }

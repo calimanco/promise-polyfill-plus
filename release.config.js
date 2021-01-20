@@ -8,12 +8,12 @@ module.exports = {
       {
         assets: [
           {
-            path: 'dist/promise-polyfill-plus.umd.js',
-            label: 'JS umd'
+            path: 'dist/promise-polyfill-plus.umd.auto.js',
+            label: 'umd.auto.js'
           },
           {
-            path: 'dist/promise-polyfill-plus.umd.min.js',
-            label: 'JS umd min'
+            path: 'dist/promise-polyfill-plus.umd.auto.min.js',
+            label: 'umd.auto.min.js'
           }
         ]
       }
