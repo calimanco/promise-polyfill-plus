@@ -57,10 +57,10 @@ require('promise-polyfill-plus/auto')
 下面示例仅供参考，生产环境不建议直接用下载链接。  
 
 ```html
-<!--Uncompressed version-->
-<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/download/v1.5.1/promise-polyfill-plus.umd.auto.js'></scirpt>
-<!--Compressed version-->
-<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/download/v1.5.1/promise-polyfill-plus.umd.auto.min.js'></scirpt>
+<!--Uncompressed umd version-->
+<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/promise-polyfill-plus.umd.auto.js'></scirpt>
+<!--Compressed umd version-->
+<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/promise-polyfill-plus.umd.auto.min.js'></scirpt>
 ```
 
 ## 特性

@@ -23,7 +23,7 @@ export default {
       file: pkg.main.replace('.js', '.auto.js'),
       name: camelCase(libraryName),
       format: 'umd',
-      sourcemap: true,
+      sourcemap: false,
       outro: 'autoPolyfill()',
       exports: 'named'
     },

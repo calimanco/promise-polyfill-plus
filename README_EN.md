@@ -57,10 +57,10 @@ If you want to use it directly in HTML, please go to the Github Releases page to
 The following example is for reference only. It is not recommended using the download link directly in the production environment.  
 
 ```html
-<!--Uncompressed version-->
-<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/download/v1.5.1/promise-polyfill-plus.umd.auto.js'></scirpt>
-<!--Compressed version-->
-<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/download/v1.5.1/promise-polyfill-plus.umd.auto.min.js'></scirpt>
+<!--Uncompressed umd version-->
+<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/promise-polyfill-plus.umd.auto.js'></scirpt>
+<!--Compressed umd version-->
+<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/promise-polyfill-plus.umd.auto.min.js'></scirpt>
 ```
 
 ## Features

@@ -9,7 +9,7 @@
     "typescript"
   ],
   "main": "dist/promise-polyfill-plus.umd.js",
-  "module": "dist/promise-polyfill-plus.es5.js",
+  "module": "dist/promise-polyfill-plus.es6.js",
   "typings": "dist/types/index.d.ts",
   "files": [
     "dist",

@@ -1,3 +1,4 @@
 'use strict'
 
-require('./dist/promise-polyfill-plus.umd.auto.js')
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('./dist/promise-polyfill-plus.umd.js').autoPolyfill()
