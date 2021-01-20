@@ -27,7 +27,7 @@ npm install promise-polyfill-plus --save
 ```javascript
 import PromisePlus from 'promise-polyfill-plus'
 // or
-const PromisePlus = require('promise-polyfill-plus')
+const PromisePlus = require('promise-polyfill-plus').default
 
 new PromisePlus((resolve, reject) => {
   if (true) {
@@ -53,7 +53,15 @@ import 'promise-polyfill-plus/auto'
 require('promise-polyfill-plus/auto')
 ```
 
-如果你想
+如果你想直接在 HTML 中使用，请到 Github Releases 页面下载最新版本的 JS 文件，有压缩和未压缩两个版本以供选择。  
+下面示例仅供参考，生产环境不建议直接用下载链接。  
+
+```html
+<!--Uncompressed version-->
+<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/download/v1.5.1/promise-polyfill-plus.umd.auto.js'></scirpt>
+<!--Compressed version-->
+<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/download/v1.5.1/promise-polyfill-plus.umd.auto.min.js'></scirpt>
+```
 
 ## 特性
 

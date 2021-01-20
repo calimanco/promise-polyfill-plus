@@ -27,7 +27,7 @@ import to the code directly.
 ```javascript
 import PromisePlus from 'promise-polyfill-plus'
 // or
-const PromisePlus = require('promise-polyfill-plus')
+const PromisePlus = require('promise-polyfill-plus').default
 
 new PromisePlus((resolve, reject) => {
   if (true) {
@@ -51,6 +51,16 @@ The native Promise can be automatically enhanced. If the environment does not ha
 import 'promise-polyfill-plus/auto'
 // or
 require('promise-polyfill-plus/auto')
+```
+
+If you want to use it directly in HTML, please go to the Github Releases page to download the latest version of the JS file. There are supplying two versions, compressed and uncompressed.  
+The following example is for reference only. It is not recommended using the download link directly in the production environment.  
+
+```html
+<!--Uncompressed version-->
+<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/download/v1.5.1/promise-polyfill-plus.umd.auto.js'></scirpt>
+<!--Compressed version-->
+<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/download/v1.5.1/promise-polyfill-plus.umd.auto.min.js'></scirpt>
 ```
 
 ## Features
