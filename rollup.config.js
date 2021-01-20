@@ -1,9 +1,9 @@
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
+import json from '@rollup/plugin-json'
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 import sourceMaps from 'rollup-plugin-sourcemaps'
-import camelCase from 'lodash.camelcase'
+import { camelCase } from 'lodash'
 import typescript from 'rollup-plugin-typescript2'
-import json from 'rollup-plugin-json'
 import pkg from './package.json'
 
 const libraryName = 'promise-polyfill-plus'
@@ -33,7 +33,8 @@ export default {
       tsconfig: 'tsconfig.json',
       tsconfigOverride: {
         compilerOptions: {
-          removeComments: true
+          removeComments: true,
+          module: 'ES2015'
         }
       }
     }),
