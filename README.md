@@ -58,9 +58,9 @@ require('promise-polyfill-plus/auto')
 
 ```html
 <!--Uncompressed umd version-->
-<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/promise-polyfill-plus.umd.auto.js'></scirpt>
+<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/download/promise-polyfill-plus.umd.auto.js'></scirpt>
 <!--Compressed umd version-->
-<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/promise-polyfill-plus.umd.auto.min.js'></scirpt>
+<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/download/promise-polyfill-plus.umd.auto.js'></scirpt>
 ```
 
 ## 特性
