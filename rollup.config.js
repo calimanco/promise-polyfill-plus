@@ -2,6 +2,7 @@ import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import sourceMaps from 'rollup-plugin-sourcemaps'
+import { uglify } from 'rollup-plugin-uglify'
 import { camelCase } from 'lodash'
 import typescript from 'rollup-plugin-typescript2'
 import pkg from './package.json'
@@ -16,6 +17,14 @@ export default {
       name: camelCase(libraryName),
       format: 'umd',
       sourcemap: true
+    },
+    {
+      file: pkg.main.replace('.js', '.min.js'),
+      name: camelCase(libraryName),
+      format: 'umd',
+      sourcemap: false,
+      outro: 'autoPolyfill()',
+      plugins: [uglify()]
     },
     { file: pkg.module, format: 'es', sourcemap: true }
   ],
