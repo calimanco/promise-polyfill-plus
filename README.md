@@ -54,13 +54,13 @@ require('promise-polyfill-plus/auto')
 ```
 
 如果你想直接在 HTML 中使用，请到 Github Releases 页面下载最新版本的 JS 文件，有压缩和未压缩两个版本以供选择。  
-下面示例仅供参考，生产环境不建议直接用下载链接。  
+也可以使用下面的 cdn 链接，同样有两个版本供选择。  
 
 ```html
 <!--Uncompressed umd version-->
-<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/download/promise-polyfill-plus.umd.auto.js'></scirpt>
+<scirpt src='https://cdn.jsdelivr.net/npm/promise-polyfill-plus@1/dist/promise-polyfill-plus.umd.auto.js'></scirpt>
 <!--Compressed umd version-->
-<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/download/promise-polyfill-plus.umd.auto.js'></scirpt>
+<scirpt src='https://cdn.jsdelivr.net/npm/promise-polyfill-plus@1/dist/promise-polyfill-plus.umd.auto.min.js'></scirpt>
 ```
 
 ## 特性

@@ -54,13 +54,13 @@ require('promise-polyfill-plus/auto')
 ```
 
 If you want to use it directly in HTML, please go to the Github Releases page to download the latest version of the JS file. There are supplying two versions, compressed and uncompressed.  
-The following example is for reference only. It is not recommended using the download link directly in the production environment.  
+You can also use the following cdn link, there are also two versions to choose from.  
 
 ```html
 <!--Uncompressed umd version-->
-<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/download/promise-polyfill-plus.umd.auto.js'></scirpt>
+<scirpt src='https://cdn.jsdelivr.net/npm/promise-polyfill-plus@1/dist/promise-polyfill-plus.umd.auto.js'></scirpt>
 <!--Compressed umd version-->
-<scirpt src='https://github.com/calimanco/promise-polyfill-plus/releases/latest/download/promise-polyfill-plus.umd.auto.js'></scirpt>
+<scirpt src='https://cdn.jsdelivr.net/npm/promise-polyfill-plus@1/dist/promise-polyfill-plus.umd.auto.min.js'></scirpt>
 ```
 
 ## Features
