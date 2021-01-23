@@ -65,11 +65,7 @@ describe('isMyPromise function test', () => {
 
 describe('isFunction function test', () => {
   it('should be true', () => {
-    expect(
-      isFunction(function test() {
-        return
-      })
-    ).toBe(true)
+    expect(isFunction(function test() {})).toBe(true)
   })
 
   it('should be false', () => {

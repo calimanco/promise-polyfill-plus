@@ -8,17 +8,14 @@ import resolve from './resolve'
 import reject from './reject'
 import { defaultOnFulfilledCallback } from './other'
 
-interface ExecutorFn {
-  (resolve: (value: any) => void, reject: (reason: any) => void): void
-}
+type ExecutorFn = (
+  resolve: (value: any) => void,
+  reject: (reason: any) => void
+) => void
 
-interface FulfilledCallback {
-  (value: any): void
-}
+type FulfilledCallback = (value: any) => void
 
-interface RejectedCallback {
-  (reason: any): void
-}
+type RejectedCallback = (reason: any) => void
 
 export default class MyPromise {
   _state: State = PENDING
@@ -47,12 +44,11 @@ export default class MyPromise {
 
   then = then.bind(this)
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  catch = (onRejected?: ((reason: any) => any) | null) => {
+  catch = (onRejected?: ((reason: any) => any) | null): MyPromise => {
     return this.then(null, onRejected)
   }
 
-  finally = (callback: () => void) => {
+  finally = (callback: () => void): MyPromise => {
     return this.then(
       (value: any) => {
         callback()

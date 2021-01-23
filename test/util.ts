@@ -1,4 +1,6 @@
-export function changeThenToInvokeTwice(promise: PromiseLike<any>) {
+export function changeThenToInvokeTwice(
+  promise: PromiseLike<any>
+): PromiseLike<any> {
   const oldThen = promise.then
   promise.then = new Proxy(oldThen, {
     apply: function (target, ctx, args) {
@@ -9,7 +11,9 @@ export function changeThenToInvokeTwice(promise: PromiseLike<any>) {
   return promise
 }
 
-export function changeThenToThrowError(promise: PromiseLike<any>) {
+export function changeThenToThrowError(
+  promise: PromiseLike<any>
+): PromiseLike<any> {
   const oldThen = promise.then
   promise.then = new Proxy(oldThen, {
     apply: function () {

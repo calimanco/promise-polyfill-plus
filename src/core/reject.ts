@@ -1,7 +1,7 @@
 import MyPromise from './MyPromise'
 import { PENDING, REJECTED } from '../helpers/constant'
 
-export default function reject(this: MyPromise, reason: any) {
+export default function reject(this: MyPromise, reason: any): void {
   if (this._state === PENDING) {
     this._state = REJECTED
     this._reason = reason

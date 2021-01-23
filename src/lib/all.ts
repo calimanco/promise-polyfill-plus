@@ -1,6 +1,6 @@
 import { getArrayRealLen } from '../helpers/util'
 
-export function all(MyPromise: any, promises: PromiseLike<any>[]) {
+export function all(MyPromise: any, promises: Array<PromiseLike<any>>): any {
   return new MyPromise(
     (resolve: (value: any[]) => void, reject: (reason: any) => void) => {
       const result: any[] = []
@@ -19,6 +19,8 @@ export function all(MyPromise: any, promises: PromiseLike<any>[]) {
   )
 }
 
-export default function initAll(MyPromise: any) {
+export default function initAll(
+  MyPromise: any
+): (promises: Array<PromiseLike<any>>) => any {
   return all.bind(null, MyPromise)
 }

@@ -10,7 +10,9 @@ export function defaultOnFulfilledCallback(this: MyPromise, reason: any): void {
           break
         case 'node':
           console.log(
-            `(node:12296) UnhandledPromiseRejectionWarning: ${reason}`
+            `(node:12296) UnhandledPromiseRejectionWarning: ${JSON.stringify(
+              reason
+            )}`
           )
           break
       }

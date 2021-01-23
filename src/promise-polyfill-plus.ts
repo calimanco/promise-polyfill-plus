@@ -25,10 +25,14 @@ const staticMethods = {
  * 给 Promise 类添加静态方法
  * @param promiseClass
  */
-export function initPromise(promiseClass: PromiseConstructorLike) {
+export function initPromise(
+  promiseClass: PromiseConstructorLike
+): MyPromiseStatic {
   if (!isPromiseConstructorLike(promiseClass)) {
     throw new TypeError(
-      `Init param ${promiseClass} is not a PromiseConstructorLike object`
+      `Init param ${Object.prototype.toString.call(
+        promiseClass
+      )} is not a PromiseConstructorLike object`
     )
   }
   Object.keys(staticMethods).forEach(key => {
@@ -44,9 +48,12 @@ const Promise = initPromise(MyPromise)
 /**
  * 自动 Polyfill 当前运行环境的 Promise
  */
-export function autoPolyfill() {
+export function autoPolyfill(): void {
   const env = typeof window !== 'undefined' ? window : global
-  if (env.Promise && isPromiseConstructorLike(env.Promise)) {
+  if (
+    typeof env.Promise !== 'undefined' &&
+    isPromiseConstructorLike(env.Promise)
+  ) {
     ;(env as any).Promise = initPromise(env.Promise)
   } else {
     ;(env as any).Promise = Promise

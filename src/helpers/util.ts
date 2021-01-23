@@ -17,13 +17,13 @@ export function isPromiseLike(val: any): val is PromiseLike<any> {
 
 /**
  * 判断是否是 PromiseConstructorLike 的对象。
- * @param promiseClass
+ * @param PromiseClass
  */
 export function isPromiseConstructorLike(
-  promiseClass: any
-): promiseClass is PromiseConstructorLike {
+  PromiseClass: any
+): PromiseClass is PromiseConstructorLike {
   try {
-    const instance = new promiseClass(() => {
+    const instance = new PromiseClass(() => {
       // do nothing
     })
     if (!isPromiseLike(instance)) {
@@ -64,7 +64,7 @@ export function simulateAsync(fn: (...arg: any) => any, ms = 0): void {
  * 使函数只运行一次的包装函数。
  * @param fn 函数
  */
-export function runOnce(fn: (...arg: any) => any) {
+export function runOnce<T>(fn: (...arg: T[]) => any): (...arg: T[]) => any {
   let lock = false
   return (...arg: any) => {
     if (lock) return
@@ -76,7 +76,7 @@ export function runOnce(fn: (...arg: any) => any) {
 /**
  * 检查运行的环境。
  */
-export function checkEnv() {
+export function checkEnv(): 'browser' | 'node' {
   if (typeof window !== 'undefined') {
     return 'browser'
   } else {
@@ -88,6 +88,6 @@ export function checkEnv() {
  * 获取数组的真实长度。
  * @param arr 数组
  */
-export function getArrayRealLen(arr: Array<any>) {
+export function getArrayRealLen(arr: any[]): number {
   return Object.keys(arr).length
 }

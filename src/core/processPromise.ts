@@ -6,7 +6,7 @@ export default function processPromise(
   callbackResult: any,
   newResolve: (value: any) => void,
   newReject: (reason: any) => void
-) {
+): void {
   // called 防止多次调用
   let called = false
 
@@ -20,7 +20,7 @@ export default function processPromise(
       // 检查是否是在等待一个 promise 链后面的 promise，这是永远不可能完成的情况。
       let next = newPromise._next
 
-      while (next) {
+      while (next != null) {
         if (callbackResult === next) {
           return newReject(new TypeError('Wait for never run promise'))
         }

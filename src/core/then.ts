@@ -6,7 +6,7 @@ export default function then(
   this: MyPromise,
   onFulfilled?: ((value: any) => any) | null,
   onRejected?: ((reason: any) => any) | null
-) {
+): MyPromise {
   if (!isFunction(onFulfilled)) {
     onFulfilled = value => {
       return value
@@ -23,7 +23,7 @@ export default function then(
     query: any,
     newResolve: (value: any) => void,
     newReject: (reason: any) => void
-  ) => {
+  ): void => {
     simulateAsync(() => {
       try {
         const callbackResult = callback(query)

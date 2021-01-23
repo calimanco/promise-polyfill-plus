@@ -4,6 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/calimanco/promise-polyfill-plus/badge.svg?branch=main)](https://coveralls.io/github/calimanco/promise-polyfill-plus?branch=main)
 [![NPM](https://img.shields.io/npm/l/promise-polyfill-plus)](https://www.npmjs.com/package/promise-polyfill-plus)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/promise-polyfill-plus)](https://www.npmjs.com/package/promise-polyfill-plus)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Intro
 
