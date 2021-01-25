@@ -14,7 +14,7 @@ module.exports = {
       }
     },
     {
-      files: ['*.spec.ts'],
+      files: ['*.{spec|test}.ts'],
       rules: {
         'prefer-promise-reject-errors': 'off',
         'promise/param-names': 'off',
