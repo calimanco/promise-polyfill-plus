@@ -142,7 +142,7 @@ import PromisePlus from 'promise-polyfill-plus'
 const promises = [2, 3, 5, 7, 11, 13].map(function (id) {
   return new PromisePlus(resolve => resolve(id))
 })
-Promise.all(promises)
+PromisePlus.all(promises)
   .then(value => {
     console.log(value) // [2, 3, 5, 7, 11, 13]
     // do something
@@ -252,7 +252,7 @@ import PromisePlus from 'promise-polyfill-plus'
 const resolved = PromisePlus.resolve(42)
 const rejected = PromisePlus.reject(-1)
 
-const allSettledPromise = Promise.allSettled([resolved, rejected])
+const allSettledPromise = PromisePlus.allSettled([resolved, rejected])
 
 allSettledPromise.then(function (results) {
   console.log(results)
@@ -306,11 +306,11 @@ const resolved = PromisePlus.resolve(42)
 const rejected = PromisePlus.reject(-1)
 const alsoRejected = PromisePlus.reject(Infinity)
 
-Promise.any([resolved, rejected, alsoRejected]).then(result => {
+PromisePlus.any([resolved, rejected, alsoRejected]).then(result => {
   console.log(result) // 42
 })
 
-Promise.any([rejected, alsoRejected]).catch(results => {
+PromisePlus.any([rejected, alsoRejected]).catch(results => {
   console.log(results) // [-1, Infinity]
 })
 ```
