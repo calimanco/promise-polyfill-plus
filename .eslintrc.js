@@ -10,7 +10,8 @@ module.exports = {
       },
       rules: {
         '@typescript-eslint/no-floating-promises': 'off',
-        '@typescript-eslint/no-non-null-assertion': 'off'
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/prefer-ts-expect-error': 'off'
       }
     },
     {

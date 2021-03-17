@@ -30,7 +30,7 @@ export default function processPromise(
     try {
       const then = callbackResult.then
       // 这里可能是另一个异步，回调不会立即被执行，理论上如果一直有 thenable 对象嵌套，则会一直等待下去。
-      // @ts-expect-error
+      // @ts-ignore
       then.call(
         callbackResult,
         (y: any) => {
