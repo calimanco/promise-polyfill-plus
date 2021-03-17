@@ -2,7 +2,7 @@ import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import sourceMaps from 'rollup-plugin-sourcemaps'
-import { uglify } from 'rollup-plugin-uglify'
+import { terser } from 'rollup-plugin-terser'
 import { camelCase } from 'lodash'
 import typescript from 'rollup-plugin-typescript2'
 import pkg from './package.json'
@@ -34,7 +34,7 @@ export default {
       sourcemap: false,
       outro: 'autoPolyfill()',
       exports: 'named',
-      plugins: [uglify()]
+      plugins: [terser()]
     },
     { file: pkg.module, format: 'es', sourcemap: true }
   ],
