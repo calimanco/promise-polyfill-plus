@@ -1,3 +1,5 @@
 'use strict'
 
-require('./dist/promise-polyfill-plus.umd.js').autoPolyfill()
+const { join } = require('path')
+const { main } = require('./package.json')
+require(join(__dirname, main)).autoPolyfill()
